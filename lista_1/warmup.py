@@ -1,3 +1,6 @@
+# Antonio Silverio Montagner / 19203742
+
+
 # ex1 
 class Televisao():
     def __init__(self):
@@ -25,10 +28,10 @@ class Televisao():
         self.marca = marca
 
     def muda_canal_para_cima(self):
-        self.canal+=1
+        pass
 
     def muda_canal_para_baixo(self):
-        self.canal-=1
+        pass
         
 #4 
 class Televisao():
@@ -99,7 +102,10 @@ class Televisao():
 tv1 = Televisao(25,"LG",canal_minimo=11,canal_maximo=78)
 tv2 = Televisao(52,"SANSUNG",canal_minimo=4,canal_maximo=44)
 
-#7
+#7          
+
+
+
 class Cidade():
     def __init__(self,pop,nome):
         self.nome = nome
@@ -120,14 +126,20 @@ a1 = Cidade(200,"a1")
 a2 = Cidade(400,"a2")
 a3 = Cidade(500,"a3")
 
+b1 = Cidade(400,"b1")
+b2 = Cidade(500,"b2")
+b3 = Cidade(600,"b3")
+
 c1 = Cidade(500,"c1")
 c2 = Cidade(12000,"c2")
 c3 = Cidade(3000,"c3")
 
 est1 = Estado("jaca","jc",[a1,a2,a3])
 est2 = Estado("est2","s2",[c1,c2,c3])
+est3 = Estado("est3","s3",[b1,b2,b3])
 print(est1.pop())
 print(est2.pop())
+print(est3.pop())
 
 #8 lasse Coordenada
 import math
@@ -160,14 +172,14 @@ class Coordenada():
 
 #9
 class Quadrado():
-    def __init__(self,base,altura):
+    def __init__(self,base):
         self.base = base
     def quad(self):
         self.area = self.base**2
         return self.area
 
 class Retangulo():
-    def __init__(self,x,y,z):
+    def __init__(self,x,y):
         self.largura = x
         self.altura = y
     def ret(self):
@@ -228,12 +240,3 @@ class Fracao():
                 self.numerador = x*i
                 self.denominador= i
                 return f"{self.numerador}/{self.denominador}"
-
-
-#2 biblioteca
-
-
-#3 polinomio
-
-
-#4 fibonati

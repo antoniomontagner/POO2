@@ -25,6 +25,9 @@ class Conta():
     def __add__(self, a):        #quando somar dois ob (a + b) vai automatico aplicar essa funcao
         self.saldo += a.saldo
     # def __sub__ \ __div__\ __mult__   para trabalhar com obj
+    
+    def __jaca ():
+        print("jaca")
 
 
 a = Conta(123,1000)
@@ -34,10 +37,9 @@ a.saque(1000)
 print(a.saldo)
 #Conta.reserva()     #so vai ser acessado pela conta 
 a+b
-print(a.saldo)
-print(a.__dict__)           # retorna um dicionario
-print(a.saque.__doc__)      #vai retornar o comentario do metodo
-
+print(a.saldo())
+print(a.__dict__())           # retorna um dicionario
+print(a.saque.__doc__())      #vai retornar o comentario do metodo
 
 
 

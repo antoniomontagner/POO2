@@ -1,10 +1,11 @@
-from datetime import datetime
+# ex 1
+# Antonio Silverio Montagner / 19203742
+
 
 class User():
     def __init__(self,usuarios,senha,conta):
         self.usuarios = usuarios
         self.senha = senha
-        self.data = datetime.now()
         self.conta = conta 
 
 class Conta():
@@ -77,15 +78,16 @@ while True:
             comand = int(input("1- add user \ 2-exit"))
             if comand == 1:
                 users.append(input("Digite o usuario: "))
-            else:
+            elif comand == 2:
                 break
+            else:
+                pass
         senha = input("Senha: ")
         valor = int(input("Saldo inicial: "))
         x = User(users,senha,Conta(valor))
-        usuario.append(x)
         banco.append(x)
-        print(usuario)
-        print(banco)
+        #print(users)
+        #print(banco)
     elif comando==2:
         users = input("Digite o usuario: ")
         senha = input("Senha: ")
@@ -93,36 +95,36 @@ while True:
         for i in banco:
             for j in i.usuarios:
                 if j == users:
-                    acesso = True
+                    if i.senha == senha:
+                        acesso = True
+                
+        if acesso == True:
+            while True:
+                operacao = int(input("""
+                operacao:
+                    1- adicionar conta vip
+                    2- saldo
+                    3- saque
+                    4- deposito
+
+                    0- sair
+                """))
+                if operacao == 1:
+                    dinheiro_pup = int(input("dinheiro para a poupanca: "))
+                    i.conta.conta_vip(dinheiro_pup,True)
+                elif operacao == 2:
+                    i.conta.saldo_conta()
+                elif operacao == 3:
+                    x = int(input("Valor que quer sacar: "))
+                    i.conta.saque(x)
+                elif operacao == 4:
+                    x = int(input("Valor que quer depositar:"))
+                    i.conta.deposito(x)
+
+                elif operacao == 0:
+                    break
                 else:
-                    print("Nao foi possivel fazer o login.")
-            if acesso == True:
-                while True:
-                    operacao = int(input("""
-                    operacao:
-                        1- adicionar conta vip
-                        2- saldo
-                        3- saque
-                        4- deposito
-
-                        0- sair
-                    """))
-                    if operacao == 1:
-                        dinheiro_pup = int(input("dinheiro para a poupanca: "))
-                        i.conta.conta_vip(dinheiro_pup,True)
-                    elif operacao == 2:
-                        i.conta.saldo_conta()
-                    elif operacao == 3:
-                        x = int(input("Valor que quer sacar: "))
-                        i.conta.saque(x)
-                    elif operacao == 4:
-                        x = int(input("Valor que quer depositar:"))
-                        i.conta.deposito(x)
-
-                    elif operacao == 0:
-                        break
-                    else:
-                        pass
+                    pass
     elif comando == 0:
         break
     else:

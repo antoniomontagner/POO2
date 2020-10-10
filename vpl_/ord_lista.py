@@ -34,7 +34,7 @@ class Ordenacao():
 
         return self.estring
 
-x = [3,2,5,1]
+x = [9, 0, 5, 2, 10]
 z = Ordenacao(x)
 z.ordena()
 print(z.toString())
