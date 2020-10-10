@@ -1,49 +1,39 @@
+#6 
+# Antonio Silverio Montagner / 19203742
 
-from random import randint as rand
-from random import shuffle
+import random
 
-suits = ("Spades","Hearts","Clubs","Diamonds")
+class Baralho:
+    def __init__(self):
+        self.cards = []
+        self.tipo_baralho = 52
+        naipe = ["copas", "paus", "espadas", "ouros"]
+        n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Q", "J", "K"]
+        for i in n:
+            for j in naipe:
+                self.cards.append([i,j])
+    def getBaralho(self):
+        print(self.cards)
 
-class Card:
-    def __init__(self, rank, suit):
-        if rank not in range(1, 14):
-            raise TypeError('Rank must be an integer between 1 and 13.')
-        if suit not in suits:
-            raise TypeError('Suit must be a string: "Spades", "Hearts", "Clubs", or "Diamonds".')
-        # The quick check above makes sure the card being made actually exists in a standard deck of 52.
-        # If so, the card is created succesfully.
-        self.rank = rank
-        self.suit = suit
+class Gamer(Baralho):
+    def __init__(self,n_cartas):
+        super().__init__()
+        self.mao = []
+        self.n_cartas = n_cartas
+
+    def rodada (self, n_jogador, n_cartas):
+        self.n_jogador = n_jogador
+        self.n_cartas = n_cartas
+        self.mesa_jogadores = []
+        for j in range(self.n_jogador):
+            self.mao_jogador = []
+            for i in range(self.n_cartas):
+                a = random.choice(self.cards)
+                self.mao_jogador.append(a)
+            self.mesa_jogadores.append(self.mao_jogador)
 
 
-    def cardName(self):
-        """
-        Returns a string containing the card's name in common terms.
-        """
-        if self.rank == 1:
-            trueRank = "Ace"
-        elif self.rank == 11:
-            trueRank = "Jack"
-        elif self.rank == 12:
-            trueRank = "Queen"
-        elif self.rank == 13:
-            trueRank = "King"
-        else:
-            trueRank = str(self.rank)
-        return "{rank} of {suit}".format(rank = trueRank, suit = self.suit)
-
-    def flip(self):
-        """
-        Reveals the requested card.
-        """
-        print(self.cardName())
-
-def newDeck():
-    """
-    Resets the deck to ascending order, containing all 52 cards.
-    """
-    global cardDeck
-    cardDeck = [Card(rank, suit) for suit in suits for rank in range(1, 14)]
-    cardDeck.reverse() # So that the bottom of the list is the top of the deck, i.e. the Ace of Spades is drawn first by 'cardDeck.pop()'.
-
-print(newDeck())   # To generate the deck at the start. Note that it is not shuffled at first.
+#b = Baralho()
+#g = Gamer(b)
+#g.rodada(4,4)
+#print(g.mesa_jogadores)

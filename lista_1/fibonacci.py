@@ -1,3 +1,6 @@
+# ex 4
+# Antonio Silverio Montagner / 19203742
+
 class Mat():
     def __init__(self):
         pass
@@ -28,3 +31,6 @@ class Mat():
             return"primo"
         else:
             return"não primo"
+#x = Mat()
+#n = 3
+#print(x.fatorial(n), '/', x.fibonacci(n),'/', x.fibonarial(n))
